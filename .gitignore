@@ -24,6 +24,7 @@ doc/
 .DS_Store
 .idea
 .secret
+/public/assets/
 
 *.rbc
 *.sassc
