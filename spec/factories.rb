@@ -9,4 +9,10 @@ FactoryGirl.define do
 	factory :lunch do
 		user
 	end
+
+	factory :restaurant do
+		lunch
+		sequence(:name) { |n| "Restaurant #{n}" }
+		sequence(:website) { |n| "#{n}" }
+	end
 end

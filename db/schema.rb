@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130921000855) do
+ActiveRecord::Schema.define(version: 20130921014550) do
 
   create_table "lunches", force: true do |t|
     t.integer  "user_id"
@@ -44,5 +44,15 @@ ActiveRecord::Schema.define(version: 20130921000855) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["remember_token"], name: "index_users_on_remember_token"
+
+  create_table "votes", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "restaurant_id"
+    t.boolean  "up_vote",       default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "votes", ["user_id", "restaurant_id"], name: "index_votes_on_user_id_and_restaurant_id"
 
 end
