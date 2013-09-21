@@ -11,7 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130916002635) do
+ActiveRecord::Schema.define(version: 20130921000855) do
+
+  create_table "lunches", force: true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "lunches", ["user_id"], name: "index_lunches_on_user_id"
+
+  create_table "restaurants", force: true do |t|
+    t.string   "name"
+    t.string   "website"
+    t.integer  "vote_count"
+    t.boolean  "no_vote",    default: false
+    t.integer  "lunch_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "restaurants", ["lunch_id", "vote_count"], name: "index_restaurants_on_lunch_id_and_vote_count"
 
   create_table "users", force: true do |t|
     t.string   "name"
