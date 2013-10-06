@@ -16,4 +16,22 @@ describe Restaurant do
   it { should respond_to(:vote_count) }
   it { should respond_to(:no_vote) }
   it { should respond_to(:lunch_id) }
+
+  it { should be_valid }
+
+  describe "when lunch_id is not present" do
+    before { @restaurant.lunch_id = nil }
+    it { should_not be_valid }
+  end
+
+  describe "with blank content" do
+    before { @restaurant.name = " " }
+    it { should_not be_valid }
+  end
+
+  describe "with content that is too long" do
+    before { @restaurant.name = "a" * 31 }
+    it { should_not be_valid }
+  end
+  
 end

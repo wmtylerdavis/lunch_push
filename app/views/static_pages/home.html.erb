@@ -4,6 +4,7 @@
   <h2>
     Hold up a sec...
   </h2>
-
-  <%= link_to "Create a lunch!", '#', class: "btn btn-large btn-primary" %>
+  <%= form_for(@lunch) do |f| %>
+  	<%= f.submit "Create a lunch!", class: "btn btn-large btn-primary" %>
+  <% end %>
 </div>
