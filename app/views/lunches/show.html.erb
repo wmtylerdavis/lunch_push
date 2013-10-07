@@ -1,8 +1,12 @@
 <%= provide(:title, 'Lunch') %>
 <div class="row">
 	<div class="span8">
-		<% if @lunch.restaurants.any? %>
+		<% if @restaurants %>
 		  <h3>Restaurants (<%= @lunch.restaurants.count %>)</h3>
+		<ol class="restaurants">
+		  	<%= render @restaurants %>
+		</ol>
 		<% end %>
-	</div>
+		<%= render 'restaurant_form' %>
+    </div>
 </div>

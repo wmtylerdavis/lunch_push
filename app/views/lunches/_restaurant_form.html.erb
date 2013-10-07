@@ -1,0 +1,10 @@
+<%= form_for([@lunch, @restaurant]) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+    <%= f.text_field :name, placeholder: "Restaurant name" %>
+  </div>
+  <div class="field">
+    <%= f.text_field :website, placeholder: "website" %>
+  </div>
+  <%= f.submit "Create", class: "btn btn-large btn-primary" %>
+<% end %>

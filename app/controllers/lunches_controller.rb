@@ -4,7 +4,10 @@ class LunchesController < ApplicationController
 
   def show
   	@lunch = Lunch.find(params[:id])
-    @restaurants = @lunch.restaurants
+    if @lunch.restaurants.any?
+      @restaurants = @lunch.restaurants[0..@lunch.restaurants.count]
+    end
+    @restaurant = @lunch.restaurants.build
   end
 
   def create
