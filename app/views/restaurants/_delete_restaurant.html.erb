@@ -1,5 +1,5 @@
 <% if current_user?(object.user) %>
-	<%= link_to "delete", object, method: :delete,
+	<%= link_to "delete", lunch_restaurant_path(@lunch, object), method: :delete,
 		data: { confirm: "You sure?" },
 		title: object.name %>
 <% end %>

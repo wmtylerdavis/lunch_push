@@ -4,9 +4,7 @@ class LunchesController < ApplicationController
 
   def show
   	@lunch = Lunch.find(params[:id])
-    if @lunch.restaurants.any?
-      @restaurants = @lunch.restaurants[0..@lunch.restaurants.count]
-    end
+    @feed_items = @lunch.feed
     @restaurant = @lunch.restaurants.build
   end
 
@@ -21,6 +19,11 @@ class LunchesController < ApplicationController
   end
 
   def edit
+  end
+
+  def feed
+    @lunch.restaurants
+    # Restaurant.where("lunch_id = ?", id)
   end
 
   def destroy
