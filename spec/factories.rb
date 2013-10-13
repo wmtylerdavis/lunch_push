@@ -14,5 +14,6 @@ FactoryGirl.define do
 		lunch
 		sequence(:name) { |n| "Restaurant #{n}" }
 		sequence(:website) { |n| "#{n}" }
+		user
 	end
 end

@@ -4,7 +4,6 @@ describe Lunch do
   
   let(:user) { FactoryGirl.create(:user) }
   before do
-  	# boom
   	@lunch = Lunch.new(user_id: user.id)
   end
 

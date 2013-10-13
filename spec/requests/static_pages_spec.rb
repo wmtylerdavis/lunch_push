@@ -17,6 +17,7 @@ describe "Static pages" do
       let(:user) { FactoryGirl.create(:user) }
       
       before do
+        FactoryGirl.create(:lunch, user_id: user.id) 
         sign_in user
         visit root_path
       end
